@@ -1,11 +1,11 @@
 # Selenium Grid with Docker and WebdriverIO setup
 You can use this repo to setup a selenium grid with docker and webdriverIO.  This is a work in progress and will be updated as I learn more about webdriverIO and docker. You will need to install docker compose if you don't have it before using the docker-compose.yml which is the easiest way to setup the docker containers after putting the yaml file wherever you want to run it from use the following command:
 
-```docker-compose -f docker-compose-v3.yml up```
+```docker-compose -f docker-compose.yml up```
 
 To stop it, hit Ctrl+C
 
-```docker-compose -f docker-compose-v3.yml down```
+```docker-compose -f docker-compose.yml down```
 
 These only allow for 1 instance of each nod
 
@@ -32,28 +32,28 @@ ports: PORT,
 path: '/',  // for root path
 ```
 
+
 ## Add browser options to wdio.conf.js
+
+I can't seem to get edge to work with docker.  I think it is because of the way the docker image is setup.  I will try to figure it out later. 
+
 ```
 capabilities: [
     {
         maxInstances: 5,
         browserName: 'chrome',
         'goog:chromeOptions': {
-        args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage']
+        args: ['--disable-dev-shm-usage']
     }
     },
     {
         maxInstances: 5,
         browserName: 'firefox',
-        'moz:firefoxOptions': {
-        args: ['--headless']
-        }
     },
     {
         maxInstances: 5,
-        browserName: 'edge',
-        'ms:edgeOptions': { args: ['--headless']}
-    }
+        browserName: 'MicrosoftEdge',
+    },
   ],
 ```
 
