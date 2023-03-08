@@ -35,7 +35,7 @@ path: '/',  // for root path
 
 ## Add browser options to wdio.conf.js
 
-I can't seem to get edge to work with docker.  I think it is because of the way the docker image is setup.  I will try to figure it out later. 
+These are the settings that need to be added to the capabilities:
 
 ```
 capabilities: [
